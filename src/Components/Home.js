@@ -13,9 +13,15 @@ const Home = ({ images }) => {
     const newIndex = (currentImageIndex + 1) % images.length;
     setCurrentImageIndex(newIndex);
   };
+  
   // Defining WOW
   useEffect(() => {
     new WOW.WOW().init();
+
+    let handler =()=>{
+      setIsOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
   }, []);
   const [navBar, setnavBar] = useState(false);
   const handleNavbar = () => {
