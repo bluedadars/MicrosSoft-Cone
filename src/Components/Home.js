@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import WOW from "wowjs";
+import { useNavigate } from "react-router-dom";
+
 // import ImageSlider from "./ImageSlider";
 const Home = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  let navigate = useNavigate(); 
   const previousImage = () => {
     const newIndex = (currentImageIndex - 1 + images.length) % images.length;
     setCurrentImageIndex(newIndex);
@@ -293,8 +295,8 @@ const Home = ({ images }) => {
             Find a great deal on select Surface devices built for all the ways
             you create, work, play, and connect
           </p>
-          <button className="bg-[#0067b8] hover:bg-blue-800 w-fit my-6  p-4 mx-10 text-white font-medium justify-start items-start ">
-            Shop Surface deals
+          <button onClick={()=>navigate("/product")} className="bg-[#0067b8] hover:bg-blue-800 w-fit my-6  p-4 mx-10 text-white font-medium justify-start items-start ">
+            <a href="">Shop Surface deals</a>
           </button>
         </div>
         <div className="RightImage wow animate__animated animate__fadeInRight">

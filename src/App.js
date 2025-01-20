@@ -3,6 +3,12 @@ import { useEffect } from 'react';
 import './App.css';
 import Home from './Components/Home';
 import ImageSlider from './Components/ImageSlider';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from 'react-router-dom';
+import Product from './Components/Product';
 
 function App() {
   const images = [
@@ -15,7 +21,14 @@ function App() {
   
   return (
     <div className="App">
-       <Home images={images} />
+     
+    
+      <Routes>
+			<Route path="/" element={<Home images={images}/>}/>
+      <Route path='/product' element ={<Product/>}/>
+     </Routes>
+    
+       {/* <Home images={images} /> */}
     </div>
   );
 }
